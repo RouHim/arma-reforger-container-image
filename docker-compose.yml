@@ -1,0 +1,23 @@
+services:
+  arma-reforger-server:
+    image: rouhim/arma-reforger-server
+    build:
+      context: container-data
+      dockerfile: Containerfile
+    restart: unless-stopped
+    environment:
+      FAST_BOOT: "true"
+      FPS: "120"
+    volumes:
+      - "./data:/data"
+      - "./config:/config"
+      - "./mods:/mods"
+      - "./profiles:/profiles"
+    ports:
+      - "0.0.0.0:2001:2001/udp"
+      - "0.0.0.0:17777:17777/udp"
+      - "0.0.0.0:19999:19999/udp"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "50m"

@@ -1,0 +1,31 @@
+FROM docker.io/rouhim/steamcmd:latest
+
+USER root
+# Install additional dependencies
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
+    libcurl4 net-tools libssl3
+USER $USER
+
+# STEAM_APP_ID: The Steam App ID of the game server to install
+ENV STEAM_APP_ID "1874900"
+ENV MODS_DIR "/mods"
+ENV MODS_TEMP_DIR "$MODS_DIR/temp"
+ENV MODS_DOWNLOAD_DIR "$MODS_DIR/download"
+ENV PROFILES_DIR "/profiles"
+ENV FPS "120"
+
+# Two very important aspects of dedicated server public hosting:
+#       Keep fastValidation to true
+#       Limit max FPS with the -maxFPS startup parameter in order to save performance
+ENV STARTUP_COMMAND "./ArmaReforgerServer -addonsVerify -addonsRepair -profile $PROFILES_DIR -logStats 30000 -nothrow -maxFPS $FPS -addonsDir $MODS_DIR -addonDownloadDir $MODS_DOWNLOAD_DIR -addonTempDir $MODS_TEMP_DIR -config $SERVER_CONFIG_DIR/config.json"
+
+# Optional pre.sh script to run before the server starts
+COPY pre.sh $USER_HOME/pre.sh
+
+# Optional post.sh script to run after the server stops
+# COPY post.sh $USER_HOME/post.sh
+
+EXPOSE 2001/udp
+EXPOSE 17777/udp
+EXPOSE 19999/udp
