@@ -23,20 +23,6 @@ jobs:
           format: 'table'
           exit-code: '0'
 
-      - name: Save to github security tab
-        uses: aquasecurity/trivy-action@master
-        with:
-          image-ref: 'docker.io/${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}'
-          format: 'sarif'
-          output: 'trivy-results.sarif'
-          exit-code: '0'
-          ignore-unfixed: true
-          severity: 'CRITICAL,HIGH'
-      - name: Upload Trivy scan results to GitHub Security tab
-        uses: github/codeql-action/upload-sarif@v3
-        with:
-          sarif_file: 'trivy-results.sarif'
-
       - name: Fail if vulnerabilities found
         uses: aquasecurity/trivy-action@master
         with:
@@ -59,20 +45,6 @@ jobs:
           scan-type: 'fs'
           format: 'table'
           exit-code: '0'
-
-      - name: Save to github security tab
-        uses: aquasecurity/trivy-action@master
-        with:
-          scan-type: 'fs'
-          format: 'sarif'
-          output: 'trivy-results.sarif'
-          exit-code: '0'
-          ignore-unfixed: true
-          severity: 'CRITICAL,HIGH'
-      - name: Upload Trivy scan results to GitHub Security tab
-        uses: github/codeql-action/upload-sarif@v3
-        with:
-          sarif_file: 'trivy-results.sarif'
 
       - name: Fail if vulnerabilities found
         uses: aquasecurity/trivy-action@master
@@ -97,21 +69,6 @@ jobs:
           hide-progress: false
           format: 'table'
           exit-code: '0'
-
-      - name: Save to github security tab
-        uses: aquasecurity/trivy-action@master
-        with:
-          scan-type: 'config'
-          hide-progress: false
-          format: 'sarif'
-          output: 'trivy-results.sarif'
-          exit-code: '0'
-          ignore-unfixed: true
-          severity: 'CRITICAL,HIGH'
-      - name: Upload Trivy scan results to GitHub Security tab
-        uses: github/codeql-action/upload-sarif@v3
-        with:
-          sarif_file: 'trivy-results.sarif'
 
       - name: Fail if misconfiguration found
         uses: aquasecurity/trivy-action@master
