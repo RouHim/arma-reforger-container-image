@@ -6,8 +6,8 @@ services:
       dockerfile: Containerfile
     restart: unless-stopped
     environment:
-      FAST_BOOT: "true"
-      MAX_FPS: "120"
+      FAST_BOOT: "false"
+      MAX_FPS: "60"
       ADDITIONAL_STARTUP_ARGS: ""
     volumes:
       - "./data:/data"
