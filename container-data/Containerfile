@@ -9,16 +9,16 @@ USER $USER
 
 # STEAM_APP_ID: The Steam App ID of the game server to install
 ENV STEAM_APP_ID "1874900"
-ENV MODS_DIR "/mods"
-ENV MODS_TEMP_DIR "$MODS_DIR/temp"
-ENV MODS_DOWNLOAD_DIR "$MODS_DIR/download"
+ENV MODS_BASE_DIR "/mods"
+ENV MODS_TEMP_DIR "$MODS_BASE_DIR/temp"
 ENV PROFILES_DIR "/profiles"
-ENV FPS "120"
+ENV MAX_FPS "60"
+ENV ADDITIONAL_STARTUP_ARGS ""
 
 # Two very important aspects of dedicated server public hosting:
 #       Keep fastValidation to true
 #       Limit max FPS with the -maxFPS startup parameter in order to save performance
-ENV STARTUP_COMMAND "./ArmaReforgerServer -addonsVerify -addonsRepair -profile $PROFILES_DIR -logStats 30000 -nothrow -maxFPS $FPS -addonsDir $MODS_DIR -addonDownloadDir $MODS_DOWNLOAD_DIR -addonTempDir $MODS_TEMP_DIR -config $SERVER_CONFIG_DIR/config.json"
+ENV STARTUP_COMMAND "./ArmaReforgerServer -listScenarios -addonsVerify -addonsRepair -profile $PROFILES_DIR -logStats 30000 -nothrow -maxFPS $MAX_FPS -addonDownloadDir $MODS_BASE_DIR -addonTempDir $MODS_TEMP_DIR -config $SERVER_CONFIG_DIR/config.json $ADDITIONAL_STARTUP_ARGS"
 
 # Optional pre.sh script to run before the server starts
 COPY pre.sh $USER_HOME/pre.sh

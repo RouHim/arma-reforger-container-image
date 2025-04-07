@@ -7,7 +7,8 @@ services:
     restart: unless-stopped
     environment:
       FAST_BOOT: "true"
-      FPS: "120"
+      MAX_FPS: "120"
+      ADDITIONAL_STARTUP_ARGS: ""
     volumes:
       - "./data:/data"
       - "./config:/config"

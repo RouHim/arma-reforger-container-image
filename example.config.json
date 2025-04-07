@@ -1,0 +1,24 @@
+{
+  "publicAddress": "<your public IP address>",
+  "publicPort": 2001,
+  "game": {
+    "name": "My Game",
+    "password": "",
+    "passwordAdmin": "change_this_password",
+    "admins": [
+      "123456789012345"
+    ],
+    "scenarioId": "{3F2E005F43DBD2F8}Missions/CAH_Briars_Coast.conf",
+    "maxPlayers": 64,
+    "visible": true,
+    "gameProperties": {
+      "disableThirdPerson": true
+    },
+    "mods": [
+      {
+        "modId": "5965550F24A0C152",
+        "name": "Where Am I"
+      }
+    ]
+  }
+}
