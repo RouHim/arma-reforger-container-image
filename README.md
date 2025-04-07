@@ -29,7 +29,7 @@
 git clone https://github.com/RouHim/arma-reforger-container-image.git
 cd arma-reforger-container-image
 mkdir -p config/ data/ profiles/ mods/
-chmod -r 777 config/ data/ mods/ profiles/
+chmod -R 777 config/ data/ mods/ profiles/
 cp example.config.json config/config.json # Adjust the config file as needed
 docker compose pull
 docker compose up -d
