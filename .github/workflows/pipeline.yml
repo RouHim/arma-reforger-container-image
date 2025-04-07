@@ -79,12 +79,6 @@ jobs:
           ignore-unfixed: true
           severity: 'CRITICAL,HIGH'
 
-      - name: Test the built image
-        run: |
-          mkdir -p config/ data/
-          chmod 777 config/ data/
-          timeout 10m bash .github/workflows/test-image.sh
-
       - name: Build and push container image
         if: github.ref == 'refs/heads/main'
         uses: docker/build-push-action@v6

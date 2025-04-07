@@ -83,11 +83,11 @@ found [here](https://community.bistudio.com/wiki/Arma_Reforger:Server_Config).
 
 All environment variables are optional and can be set in the `docker-compose.yml` file.
 
-| Environment Variable      | Description                                                                                                                                                                                   | Default Value       | Example Value |
-|---------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------|---------------|
-| `MAX_FPS`                 | The [max server FPS](https://community.bistudio.com/wiki/Arma_Reforger:Startup_Parameters#maxFPS)                                                                                             | `60`                | `120`         |
-| `ADDITIONAL_STARTUP_ARGS` | Used to pass additional startup parameters to the server. Check this [link](https://community.bistudio.com/wiki/Arma_Reforger:Startup_Parameters) for a list of available startup parameters. | `""` (empty string) | `"-nds 1"`    |
-| `FAST_BOOT`               | If set to `true`, the server will skip update and validation of the server files on every boot.                                                                                               | `false`             | `true`        |
+| Environment Variable      | Description                                                                                                                                                                                   | Default Value     | Example Value |
+|---------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------|---------------|
+| `MAX_FPS`                 | The [max server FPS](https://community.bistudio.com/wiki/Arma_Reforger:Startup_Parameters#maxFPS)                                                                                             | `60`              | `120`         |
+| `ADDITIONAL_STARTUP_ARGS` | Used to pass additional startup parameters to the server. Check this [link](https://community.bistudio.com/wiki/Arma_Reforger:Startup_Parameters) for a list of available startup parameters. | `` (empty string) | `-nds 1`      |
+| `FAST_BOOT`               | If set to `true`, the server will skip update and validation of the server files on every boot.                                                                                               | `false`           | `true`        |
 
 ## Usage
 
