@@ -131,3 +131,5 @@ The server checks for updates and validates on every boot per default.
 - Config File: https://community.bistudio.com/wiki/Arma_Reforger:Server_Config
 - Guide: https://community.bistudio.com/wiki/Arma_Reforger:Server_Hosting
 - Startup Parameter: https://community.bistudio.com/wiki/Arma_Reforger:Startup_Parameters
+- Built from: https://github.com/RouHim/arma-reforger-container-image
+- Built to: https://hub.docker.com/r/rouhim/arma-reforger-server
