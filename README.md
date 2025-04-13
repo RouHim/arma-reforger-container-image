@@ -13,7 +13,7 @@
 </p>
 
 <p align="center">
-    This repository provides a <a href="https://github.com/RouHim/arma-reforger-container-image/actions/workflows/scheduled-security-audit.yaml">safe</a> container image for the <a href="https://arma-reforger.com">Arma Reforger</a> game server. 
+    This repository provides a <a href="https://github.com/RouHim/arma-reforger-container-image/actions/workflows/scheduled-security-audit.yaml">safe</a> container image for the <a href="https://reforger.armaplatform.com">Arma Reforger</a> game server. 
   It is designed to be used with Docker Compose, making it easy to set up and manage your game server environment.
 </p>
 
@@ -22,6 +22,7 @@
 * [Docker](https://docs.docker.com/engine/install/)
 * [Docker Compose](https://docs.docker.com/compose/install/standalone/)
 * 6GB RAM
+* 4 Core CPU
 
 ## Quick Start
 
