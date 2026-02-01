@@ -89,6 +89,25 @@ All environment variables are optional and can be set in the `docker-compose.yml
 | `MAX_FPS`                 | The [max server FPS](https://community.bistudio.com/wiki/Arma_Reforger:Startup_Parameters#maxFPS)                                                                                             | `60`              | `120`         |
 | `ADDITIONAL_STARTUP_ARGS` | Used to pass additional startup parameters to the server. Check this [link](https://community.bistudio.com/wiki/Arma_Reforger:Startup_Parameters) for a list of available startup parameters. | `` (empty string) | `-nds 1`      |
 | `FAST_BOOT`               | If set to `true`, the server will skip update and validation of the server files on every boot.                                                                                               | `false`           | `true`        |
+| `STEAM_USERNAME`          | Steam account username (empty = use anonymous login)                                                                                                                                          | `` (empty string) | `myuser`      |
+| `STEAM_PASSWORD`          | Steam account password (required if `STEAM_USERNAME` is set)                                                                                                                                  | `` (empty string) | `mypassword`  |
+| `STEAM_GUARD_CODE`        | Steam Guard 2FA code (optional; if set, passed to SteamCMD login)                                                                                                                             | `` (empty string) | `ABC12`       |
+
+## Authentication
+
+By default this image uses `login anonymous` when running SteamCMD.
+
+Some dedicated servers (or private/beta branches) require an authenticated Steam account to download. In that case set:
+
+- `STEAM_USERNAME`
+- `STEAM_PASSWORD`
+
+If Steam Guard (2FA) is enabled for the account, set `STEAM_GUARD_CODE` at container start.
+
+Notes:
+- Steam Guard codes expire quickly (typically ~30 seconds). If the container is restarted, you may need to provide a new code.
+- Credentials passed via environment variables can be visible via `docker inspect` and similar tooling. Prefer Docker/Kubernetes secrets for production, and avoid baking credentials into images.
+- SteamCMD script parsing is whitespace-based; usernames/passwords containing spaces may not work reliably.
 
 ## Usage
 
