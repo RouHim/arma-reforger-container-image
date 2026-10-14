@@ -1,0 +1,9 @@
+# Go stdlib CVEs in /usr/bin/pebble (Go 1.26.7), inherited via the
+# rouhim/steamcmd:latest base image (ubuntu:devel ships pebble since
+# ~Sept 2026). Pebble is unused, is not owned by any deb package, and can
+# therefore not be fixed via apt upgrade. Fixed upstream in Go 1.26.9 /
+# 1.27.2 — drop these once the base image ships a fixed Go toolchain.
+# Added 2026-10-14.
+CVE-2026-78667
+CVE-2026-78669
+CVE-2026-97031
